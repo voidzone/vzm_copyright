@@ -3,7 +3,7 @@
 	Name: VZM Copyright Box
 	Author: Tim Milligan
 	Description: Adds a customizable copyright box to the skin editor.
-	Version: 1.2
+	Version: 1.3
 	Class: vzm_copyright
 */
 
