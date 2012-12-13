@@ -45,7 +45,10 @@ class vzm_copyright extends thesis_box {
 		);
 	}
 
-	public function html($depth) {
+	public function html($args = false) {
+		extract($args = is_array($args) ? $args : array());
+		$tab = str_repeat("\t", !empty($depth) ? $depth : 0);
+		
 		$name = $this->options['name'];
 		$url = $this->options['url'];
 		$new_window = $this->options['new-window'];
@@ -53,7 +56,7 @@ class vzm_copyright extends thesis_box {
 		$class = $this->options['class'];
 		
 		echo
-			str_repeat("\t", $depth) .
+			$tab .
 			sprintf(__("<p%s>Copyright &copy; %s%d %s%s%s. All Rights Reserved."), ($class ? ' class="' . $class . '"' : ''), ($start_date ? $start_date . ' &ndash; ' : ''), date('Y'), (!empty($url) ? '<a href="' . $url . '"' . ($new_window['yes'] ? ' target="_blank">' : '>') : ''), $name, (!empty($url) ? '</a>' : '')) . "</p>\n";
 	}
 }
